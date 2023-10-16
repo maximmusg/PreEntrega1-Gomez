@@ -1,0 +1,27 @@
+.navbar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.list__container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+}
+
+/* .item__list {
+} */
+
+.category__btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(38, 27, 112);
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
