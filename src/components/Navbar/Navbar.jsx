@@ -5,9 +5,10 @@ const Navbar = () => {
   return (
     <div className="navbar__container">
       <div>
-        <img src={"./logo.png"} alt="logo" width={"50%"} />
-        {/* <h1>Tienda de Aromas</h1> */}
+        <img src={"./logo.png"} alt="logo" className="image__navbar" />
+        <h1>mmsg Aromas</h1>
       </div>
+
       <div>
         <ul className="list__container">
           <li className="item__list">

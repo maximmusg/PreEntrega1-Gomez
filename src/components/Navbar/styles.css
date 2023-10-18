@@ -1,21 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar__container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  padding: 1rem;
+  background-color: rgb(231, 231, 160);
+}
+
+.image__navbar {
+  width: 10rem;
 }
 
 .list__container {
   display: flex;
-  flex-direction: row;
-  align-items: start;
-  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
   list-style-type: none;
 }
-
-/* .item__list {
-} */
 
 .category__btn {
   background-color: transparent;
