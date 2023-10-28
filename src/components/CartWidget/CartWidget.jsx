@@ -8,7 +8,9 @@ const CartWidget = () => {
     <div>
       <Icon.Cart4 size={40} />
       <div>
-        <Badge className="icon_notify">3</Badge>
+        <Badge bg="danger" className="icon_notify">
+          3
+        </Badge>
       </div>
     </div>
   );

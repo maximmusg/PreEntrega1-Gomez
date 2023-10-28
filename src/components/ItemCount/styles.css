@@ -1,0 +1,9 @@
+.count__container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.3rem;
+}
+.btn__style {
+  width: 3rem;
+}
