@@ -24,7 +24,7 @@ const ItemCount = () => {
         +
       </Button>
       {/* <Button variant="primary" onClick={sumarTexto}>
-        Agregar al carrito
+        Agregar al carrito.
       </Button> */}
       <div>{renderCount.current}</div>
     </div>
