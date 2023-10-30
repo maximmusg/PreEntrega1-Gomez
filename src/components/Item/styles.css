@@ -1,0 +1,9 @@
+.card__body {
+  width: 10%;
+  height: 30rem;
+  border: 1px solid blueviolet;
+}
+
+.card__body img {
+  height: 100%rem;
+}
