@@ -1,12 +1,26 @@
+import { useState, useEffect } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
+import "./styles.css";
 
 const ItemListContainer = ({ greeting }) => {
+  const [productList, setProductList] = useState([]);
+  const fetchProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setProductList(data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
-    <div>
+    <div className="item__Container">
       {greeting}
       <ItemCount />
-      <ItemList />
+      <ItemList productList={productList} />
     </div>
   );
 };

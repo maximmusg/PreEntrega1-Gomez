@@ -2,14 +2,14 @@
 import Card from "react-bootstrap/Card";
 import "./styles.css";
 
-const Item = ({ name, description, price, image }) => {
+const Item = ({ title, description, price, image }) => {
   return (
     <div>
-      <Card className="card__body" style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={image} alt={name} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <h3>{price}</h3>
+      <Card className="card__styles" style={{ width: "18rem" }}>
+        <Card.Body className="card__body">
+          <Card.Title>{title}</Card.Title>
+          <Card.Img variant="top" src={image} alt={title} />
+          <h3>${price}</h3>
           <Card.Text>{description}</Card.Text>
           {/* <Button variant="primary">Go somewhere</Button> */}
         </Card.Body>

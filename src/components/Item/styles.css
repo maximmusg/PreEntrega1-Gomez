@@ -1,9 +1,14 @@
-.card__body {
-  width: 10%;
-  height: 30rem;
-  border: 1px solid blueviolet;
+.card__styles {
+  border: 1px solid red;
+  height: 40rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: wrap; */
 }
 
+/* .card__body {
+} */
+
 .card__body img {
-  height: 100%rem;
+  width: 60%;
 }
