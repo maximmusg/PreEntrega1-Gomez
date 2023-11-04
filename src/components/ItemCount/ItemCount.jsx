@@ -3,13 +3,18 @@ import { Button } from "react-bootstrap";
 import "./styles.css";
 
 const ItemCount = () => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
+  const stock = 5;
+
   const renderCount = useRef(0);
   renderCount.current++;
+
   const onAdd = () => {
+    if (count === stock) return;
     setCount(count + 1);
   };
   const onSub = () => {
+    if (count === 0) return;
     setCount(count - 1);
   };
 
