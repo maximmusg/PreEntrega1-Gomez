@@ -2,6 +2,7 @@ import Spinner from "react-bootstrap/Spinner";
 // import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const ItemList = ({ productList }) => {
   // const [productList, setProductList] = useState([]);
@@ -46,7 +47,8 @@ const ItemList = ({ productList }) => {
   ) : (
     <div className="card__container">
       {productList.map(({ title, description, price, image, id }, index) => (
-        <div
+        <Link
+          to={`item/` + id}
           key={id}
           onClick={() => {
             // setProductSelectedId(id);
@@ -60,7 +62,7 @@ const ItemList = ({ productList }) => {
             image={image}
             // image={`${image}?id=${index}`}
           />
-        </div>
+        </Link>
       ))}
     </div>
   );
