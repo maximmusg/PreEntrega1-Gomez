@@ -13,18 +13,23 @@ const Navbar = () => {
       <div>
         <ul className="list__container">
           <li className="item__list">
-            <Link to={"/category/aerosoles"} className="category__btn">
-              Aerosoles
+            <Link to={"/category/electronics"} className="category__btn">
+              Electronicos
             </Link>
           </li>
           <li>
-            <Link to={"/category/difusores"} className="category__btn">
-              Difusores
+            <Link to={"/category/jewelery"} className="category__btn">
+              Joyas
             </Link>
           </li>
           <li>
-            <Link to={"/category/textiles"} className="category__btn">
-              Textiles
+            <Link to={"/category/men's-clothing"} className="category__btn">
+              Ropa de hombre
+            </Link>
+          </li>
+          <li>
+            <Link to={"/category/women's-clothing"} className="category__btn">
+              Ropa de Mujer
             </Link>
           </li>
         </ul>
