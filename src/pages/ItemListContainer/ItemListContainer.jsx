@@ -9,10 +9,18 @@ const ItemListContainer = () => {
   const { id } = useParams();
 
   const fetchProducts = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const data = await response.json();
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
     return data;
   };
+
+  // Al siguiente codigo lo cambie para hacerlo de manera asincrona
+
+  // const fetchProducts = () => {
+  //   return fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .catch((err) => console.log(err));
+  // };
 
   const myFunctionFilter = async () => {
     let productList;
