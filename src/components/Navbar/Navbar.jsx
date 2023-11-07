@@ -6,12 +6,19 @@ const Navbar = () => {
   return (
     <div className="navbar__container">
       <div>
-        <img src={"./logo.png"} alt="logo" className="image__navbar" />
-        <h1>mmsg Aromas</h1>
+        <Link to={"/"} className="category__btn">
+          {/* <img src={"./logo.png"} alt="logo" className="image__navbar" /> */}
+          <h1>mmsg Aromas</h1>
+        </Link>
       </div>
 
       <div>
         <ul className="list__container">
+          <li className="item__list">
+            <Link to={"/"} className="category__btn">
+              Home
+            </Link>
+          </li>
           <li className="item__list">
             <Link to={"/category/electronics"} className="category__btn">
               Electronicos
