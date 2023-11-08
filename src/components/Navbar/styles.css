@@ -32,3 +32,14 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+.btn__home {
+  color: white;
+  background-color: rgb(38, 27, 112);
+  padding: 1rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

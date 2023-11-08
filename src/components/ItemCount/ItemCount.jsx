@@ -31,7 +31,7 @@ const ItemCount = () => {
       {/* <Button variant="primary" onClick={sumarTexto}>
         Agregar al carrito.
       </Button> */}
-      <div>{renderCount.current}</div>
+      {/* <div>{renderCount.current}</div> */}
     </div>
   );
 };

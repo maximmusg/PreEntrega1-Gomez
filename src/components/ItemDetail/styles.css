@@ -7,7 +7,6 @@
 
 .card__image {
   width: 50%;
-  /* border: 1px solid red; */
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -15,12 +14,10 @@
 
 .card__image img {
   width: 80%;
-  /* border: 1px solid green; */
 }
 
 .card__description {
   width: 80%;
-  /* border: 1px solid blue; */
   gap: 3rem;
   display: flex;
   flex-direction: column;

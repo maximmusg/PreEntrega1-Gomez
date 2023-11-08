@@ -15,7 +15,7 @@ const Navbar = () => {
       <div>
         <ul className="list__container">
           <li className="item__list">
-            <Link to={"/"} className="category__btn">
+            <Link to={"/"} className="category__btn btn__home">
               Home
             </Link>
           </li>

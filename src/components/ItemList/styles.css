@@ -2,10 +2,14 @@
   width: 80%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+  gap: 1rem;
+}
+
+.styles__item {
+  text-decoration: none;
 }
 
 .card__container div {

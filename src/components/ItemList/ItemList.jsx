@@ -11,7 +11,12 @@ const ItemList = ({ productList }) => {
   ) : (
     <div className="card__container">
       {productList.map(({ title, description, price, image, id }) => (
-        <Link to={`/item/${id}`} key={id} onClick={() => {}}>
+        <Link
+          className="styles__item"
+          to={`/item/${id}`}
+          key={id}
+          onClick={() => {}}
+        >
           <Item
             title={title}
             description={description}
