@@ -39,3 +39,8 @@
   font-weight: 800;
   color: rgb(138, 4, 4);
 }
+
+.btn__style {
+  background-color: red;
+  width: 20rem;
+}
