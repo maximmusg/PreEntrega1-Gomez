@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import ItemCount from "../../components/ItemCount/ItemCount";
+// import ItemCount from "../../components/ItemCount/ItemCount";
+import { ThemeContext } from "../../context/ThemeContext";
 import ItemList from "../../components/ItemList/ItemList";
 import "./styles.css";
 
@@ -40,10 +41,17 @@ const ItemListContainer = () => {
     myFunctionFilter();
   }, [id]);
 
+  const colorTheme = useContext(ThemeContext);
+
   return (
-    <div className="item__Container">
+    <div
+      style={{
+        backgroundColor: colorTheme.theme === "light" ? "white" : "black",
+      }}
+      className="item__Container"
+    >
       {/* {greeting}  esto ya no va*/}
-      <ItemCount />
+      {/* <ItemCount /> */}
       <ItemList productList={productList} />
     </div>
   );
