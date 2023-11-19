@@ -1,8 +1,13 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
 import "./styles.css";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import CartContext from "../../context/CartContext";
 
 const Navbar = () => {
+  const { setTheme } = useContext(ThemeContext);
+  const { productQuantity } = useContext(CartContext);
   return (
     <div className="navbar__container">
       <div>
@@ -62,7 +67,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="cart__container">
+        <h3>productos : {productQuantity}</h3>
         <CartWidget />
+        <button
+          onClick={() =>
+            setTheme((currentValue) =>
+              currentValue === "light" ? "dark" : "light"
+            )
+          }
+        >
+          {" "}
+          Cambia el tema{" "}
+        </button>
       </div>
     </div>
   );

@@ -1,10 +1,22 @@
 import "./styles.css";
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ itemSelected }) => {
   const [count, setCount] = useState(0);
   const stock = 5;
+  const navigate = useNavigate();
+  const { addItem } = useContext(CartContext);
+
+  const addToCart = () => {
+    addItem(itemSelected, count);
+  };
+
+  const handleNavigation = () => {
+    navigate("/cart");
+  };
 
   return (
     <div className="item__details">
@@ -17,7 +29,12 @@ const ItemDetail = ({ itemSelected }) => {
         <p className="product__price">${itemSelected?.price}</p>
         <span>Stock: {stock}</span>
         <div>
-          <button className="btn btn-primary">Finalizar compra</button>
+          <button onClick={handleNavigation} className="btn btn-primary">
+            Ver el carrito
+          </button>
+          <button onClick={addToCart} className="btn btn-primary">
+            Agregar al carrito
+          </button>
           <ItemCount count={count} setCount={setCount} stock={stock} />
         </div>
       </div>
