@@ -4,7 +4,7 @@ import Item from "../../components/Item/Item";
 import "./styles.css";
 
 const Cart = () => {
-  const { products, clear } = useContext(CartContext);
+  const { products, clear, removeItem } = useContext(CartContext);
 
   return (
     <div>
@@ -22,7 +22,7 @@ const Cart = () => {
                   price={price}
                   image={image}
                 />
-                <button>Eliminar</button>
+                <button onClick={() => removeItem(id)}>Eliminar</button>
               </div>
             ))}
           </div>

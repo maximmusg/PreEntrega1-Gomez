@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ itemSelected }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const stock = 5;
   const navigate = useNavigate();
   const { addItem } = useContext(CartContext);
