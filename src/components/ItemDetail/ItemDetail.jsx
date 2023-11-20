@@ -15,7 +15,7 @@ const ItemDetail = ({ itemSelected }) => {
   };
 
   const handleNavigation = () => {
-    navigate("/cart");
+    navigate("/Cart");
   };
 
   return (

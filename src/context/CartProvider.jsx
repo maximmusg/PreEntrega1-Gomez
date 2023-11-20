@@ -10,6 +10,10 @@ const CartProvider = ({ children }) => {
     setProducts([...products, { ...product, quantity }]);
   };
 
+  const clear = () => {
+    setProducts([]);
+  };
+
   useEffect(() => {
     setProductQuantity(
       products.reduce((acc, product) => acc + product.quantity, 0),
@@ -18,7 +22,7 @@ const CartProvider = ({ children }) => {
   }, [products]);
 
   return (
-    <CartContext.Provider value={{ products, addItem, productQuantity }}>
+    <CartContext.Provider value={{ products, addItem, productQuantity, clear }}>
       {children}
     </CartContext.Provider>
   );
