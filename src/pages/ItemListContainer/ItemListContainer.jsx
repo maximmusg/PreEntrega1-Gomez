@@ -2,38 +2,41 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import ItemList from "../../components/ItemList/ItemList";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([]);
   const { id } = useParams();
   const colorTheme = useContext(ThemeContext);
 
+  const fetchData = () => {
+    const db = getFirestore();
+    const productsQuery = collection(db, "products");
+    const querySnapshot = !id
+      ? productsQuery
+      : query(productsQuery, where("category", "==", id));
+
+    getDocs(querySnapshot)
+      .then((response) => {
+        const products = response.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProductList(products);
+      })
+      .catch((er) => {
+        console.error("Error en la carga de los productos:", er);
+      });
+  };
+
   useEffect(() => {
-    const fetchData = () => {
-      const db = getFirestore();
-      const productsQuery = collection(db, "products");
-
-      getDocs(productsQuery)
-        .then((querySnapshot) => {
-          const products = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-
-          const idFormatted =
-            id && id.includes("-") ? id.replace("-", " ") : id;
-          const filteredProducts = id
-            ? products.filter((product) => product.category === idFormatted)
-            : products;
-
-          setProductList(filteredProducts);
-        })
-        .catch((er) => {
-          console.error("Error en la carga de los productos:", er);
-        });
-    };
-
     fetchData();
   }, [id]);
 

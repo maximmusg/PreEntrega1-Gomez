@@ -31,37 +31,37 @@ const Navbar = () => {
           <li className="item__list">
             <NavLink
               activeclassname="active"
-              to={"/category/electronics"}
+              to={"/category/latas"}
               className="category__btn"
             >
-              Electronicos
+              Aerosoles
             </NavLink>
           </li>
           <li>
             <NavLink
               activeclassname="active"
-              to={"/category/jewelery"}
+              to={"/category/difusores"}
               className="category__btn"
             >
-              Joyas
+              Difusores
             </NavLink>
           </li>
           <li>
             <NavLink
               activeclassname="active"
-              to={"/category/men's-clothing"}
+              to={"/category/textiles"}
               className="category__btn"
             >
-              Ropa de hombre
+              Textiles
             </NavLink>
           </li>
           <li>
             <NavLink
               activeclassname="active"
-              to={"/category/women's-clothing"}
+              to={"/category/sahumerios"}
               className="category__btn"
             >
-              Ropa de Mujer
+              Sahumerios
             </NavLink>
           </li>
         </ul>
