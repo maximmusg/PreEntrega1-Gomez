@@ -10,32 +10,28 @@ const ItemListContainer = () => {
   const colorTheme = useContext(ThemeContext);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       const db = getFirestore();
       const productsQuery = collection(db, "products");
 
-      try {
-        const querySnapshot = await getDocs(productsQuery);
-        const products = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        console.log(products);
-        let filteredProducts;
+      getDocs(productsQuery)
+        .then((querySnapshot) => {
+          const products = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
 
-        if (id) {
-          const idFormatted = id.includes("-") ? id.replace("-", " ") : id;
-          filteredProducts = products.filter(
-            (product) => product.category === idFormatted
-          );
-        } else {
-          filteredProducts = products;
-        }
+          const idFormatted =
+            id && id.includes("-") ? id.replace("-", " ") : id;
+          const filteredProducts = id
+            ? products.filter((product) => product.category === idFormatted)
+            : products;
 
-        setProductList(filteredProducts);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
+          setProductList(filteredProducts);
+        })
+        .catch((er) => {
+          console.error("Error en la carga de los productos:", er);
+        });
     };
 
     fetchData();
