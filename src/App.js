@@ -7,6 +7,24 @@ import Cart from "./pages/Cart/Cart";
 import ThemeProvider from "./context/ThemeProvider";
 import CartProvider from "./context/CartProvider";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCP_SIoMZ90sjTFSEUsyyWGSp-PFPBe0cU",
+  authDomain: "mmsgs-3d95c.firebaseapp.com",
+  projectId: "mmsgs-3d95c",
+  storageBucket: "mmsgs-3d95c.appspot.com",
+  messagingSenderId: "682872180219",
+  appId: "1:682872180219:web:6e45cf1e252d3904030f5e",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 function App() {
   return (
     <BrowserRouter>

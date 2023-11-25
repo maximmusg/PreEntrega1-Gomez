@@ -1,47 +1,45 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-// import ItemCount from "../../components/ItemCount/ItemCount";
 import { ThemeContext } from "../../context/ThemeContext";
 import ItemList from "../../components/ItemList/ItemList";
-import "./styles.css";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([]);
   const { id } = useParams();
-
-  const fetchProducts = async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();
-    return data;
-  };
-
-  // Al siguiente codigo lo cambie para hacerlo de manera asincrona
-
-  // const fetchProducts = () => {
-  //   return fetch("https://fakestoreapi.com/products")
-  //     .then((res) => res.json())
-  //     .catch((err) => console.log(err));
-  // };
-
-  const myFunctionFilter = async () => {
-    let productList;
-
-    if (id) {
-      const data = await fetchProducts();
-      const idFormated = id.includes("-") ? id.replace("-", " ") : id;
-      productList = data.filter((product) => product.category === idFormated);
-    } else {
-      productList = await fetchProducts();
-    }
-
-    setProductList(productList);
-  };
+  const colorTheme = useContext(ThemeContext);
 
   useEffect(() => {
-    myFunctionFilter();
-  }, [id]);
+    const fetchData = async () => {
+      const db = getFirestore();
+      const productsQuery = collection(db, "products");
 
-  const colorTheme = useContext(ThemeContext);
+      try {
+        const querySnapshot = await getDocs(productsQuery);
+        const products = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log(products);
+        let filteredProducts;
+
+        if (id) {
+          const idFormatted = id.includes("-") ? id.replace("-", " ") : id;
+          filteredProducts = products.filter(
+            (product) => product.category === idFormatted
+          );
+        } else {
+          filteredProducts = products;
+        }
+
+        setProductList(filteredProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   return (
     <div
@@ -50,8 +48,6 @@ const ItemListContainer = () => {
       }}
       className="item__Container"
     >
-      {/* {greeting}  esto ya no va*/}
-      {/* <ItemCount /> */}
       <ItemList productList={productList} />
     </div>
   );
