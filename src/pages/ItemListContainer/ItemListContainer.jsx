@@ -48,6 +48,8 @@ const ItemListContainer = () => {
       className="item__Container"
     >
       <ItemList productList={productList} />
+
+      {/* <button onClick={upLoadToFirestore}>Upluad Data</button> */}
     </div>
   );
 };
