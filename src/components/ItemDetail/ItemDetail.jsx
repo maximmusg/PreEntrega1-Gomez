@@ -6,7 +6,7 @@ import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ itemSelected }) => {
   const [count, setCount] = useState(1);
-  const stock = 5;
+  const stock = "";
   const navigate = useNavigate();
   const { addItem } = useContext(CartContext);
 
@@ -26,8 +26,8 @@ const ItemDetail = ({ itemSelected }) => {
       <div className="card__description">
         <h1 className="product__title">{itemSelected?.title}</h1>
         <p className="product__description">{itemSelected?.description}</p>
+        <span>Stock: {itemSelected?.stock}</span>
         <p className="product__price">${itemSelected?.price}</p>
-        <span>Stock: {stock}</span>
         <div>
           <button onClick={handleNavigation} className="btn btn-primary">
             Ver el carrito
@@ -35,7 +35,11 @@ const ItemDetail = ({ itemSelected }) => {
           <button onClick={addToCart} className="btn btn-primary">
             Agregar al carrito
           </button>
-          <ItemCount count={count} setCount={setCount} stock={stock} />
+          <ItemCount
+            count={count}
+            setCount={setCount}
+            stock={itemSelected.stock}
+          />
         </div>
       </div>
     </div>

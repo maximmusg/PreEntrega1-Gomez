@@ -10,7 +10,7 @@ const ItemList = ({ productList }) => {
     </Spinner>
   ) : (
     <div className="card__container">
-      {productList.map(({ title, description, price, image, id }) => (
+      {productList.map(({ title, description, price, image, id, quantity }) => (
         <Link
           className="styles__item"
           to={`/item/${id}`}
@@ -22,6 +22,7 @@ const ItemList = ({ productList }) => {
             description={description}
             price={price}
             image={image}
+            quantity={quantity}
           />
         </Link>
       ))}

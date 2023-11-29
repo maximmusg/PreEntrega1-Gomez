@@ -1,8 +1,15 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import Item from "../../components/Item/Item";
 import { Form, Button } from "react-bootstrap";
-import { collection, addDoc, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getFirestore,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import "./styles.css";
 
 const Cart = () => {
@@ -12,6 +19,10 @@ const Cart = () => {
     email: "",
   });
   const { products, clear, removeItem } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const db = getFirestore();
 
   const handleImput = (event) => {
     // console.log(e.target.value);
@@ -24,7 +35,7 @@ const Cart = () => {
 
   const createOrder = (event) => {
     event.preventDefault();
-    const db = getFirestore();
+    // const db = getFirestore();
     const querySnapshot = collection(db, "orders");
 
     const newOrder = {
@@ -45,8 +56,22 @@ const Cart = () => {
     };
 
     addDoc(querySnapshot, newOrder)
-      .then((res) => alert("orden creada con exito"))
+      .then((res) => {
+        updateProductStock();
+        alert("orden creada con exito");
+        clear();
+        navigate("/");
+      })
       .catch((err) => alert("error al crear la orden"));
+  };
+
+  const updateProductStock = () => {
+    products.forEach((product) => {
+      const querySnapshot = doc(db, "products", product.id);
+      updateDoc(querySnapshot, {
+        stock: product.stock - product.quantity,
+      });
+    });
   };
 
   return (
@@ -102,17 +127,27 @@ const Cart = () => {
 
         {products.length > 0 ? (
           <div className="card__container">
-            {products.map(({ title, description, price, image, id }) => (
-              <div key={id}>
-                <Item
-                  title={title}
-                  description={description}
-                  price={price}
-                  image={image}
-                />
-                <button onClick={() => removeItem(id)}>Eliminar</button>
-              </div>
-            ))}
+            {products.map(
+              ({ title, description, price, image, id, quantity }) => (
+                <div key={id} className="cart__product">
+                  <div>
+                    <Item
+                      title={title}
+                      description={description}
+                      price={price}
+                      image={image}
+                      quantity={quantity}
+                      action={() => removeItem(id)}
+                      textButton="Eliminar"
+                    />
+
+                    {/* <h5>Cantidad: {quantity} </h5> */}
+                  </div>
+                  {/* <h5>Cantidad: {quantity} </h5>
+                  <button onClick={() => removeItem(id)}>Eliminar</button> */}
+                </div>
+              )
+            )}
           </div>
         ) : (
           <h2>Su carrito se encuentra Vacío</h2>
