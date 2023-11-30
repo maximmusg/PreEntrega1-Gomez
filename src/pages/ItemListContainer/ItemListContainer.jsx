@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
-import { listaProductos } from "../../data";
+// import { listaProductos } from "../../data";
 import ItemList from "../../components/ItemList/ItemList";
 import {
   getFirestore,
@@ -9,7 +9,7 @@ import {
   collection,
   query,
   where,
-  addDoc,
+  // addDoc,
 } from "firebase/firestore";
 
 const ItemListContainer = () => {
@@ -17,25 +17,25 @@ const ItemListContainer = () => {
   const { id } = useParams();
   const colorTheme = useContext(ThemeContext);
 
-  const upLoadToFirestore = async () => {
-    const db = getFirestore();
+  // const upLoadToFirestore = async () => {
+  //   const db = getFirestore();
 
-    const ordersCollection = collection(db, "products");
+  //   const ordersCollection = collection(db, "products");
 
-    const promises = listaProductos.map((product) => {
-      const newProduct = {
-        ...product,
-        stock: 50,
-      };
-      return addDoc(ordersCollection, newProduct);
-    });
-    try {
-      await Promise.all(promises);
-      console.log("Todos los productos han sido agregados a Firestore");
-    } catch (error) {
-      console.log("Error al subir datos", error);
-    }
-  };
+  //   const promises = listaProductos.map((product) => {
+  //     const newProduct = {
+  //       ...product,
+  //       stock: 50,
+  //     };
+  //     return addDoc(ordersCollection, newProduct);
+  //   });
+  //   try {
+  //     await Promise.all(promises);
+  //     console.log("Todos los productos han sido agregados a Firestore");
+  //   } catch (error) {
+  //     console.log("Error al subir datos", error);
+  //   }
+  // };
 
   const fetchData = () => {
     const db = getFirestore();
@@ -71,7 +71,7 @@ const ItemListContainer = () => {
     >
       <ItemList productList={productList} />
 
-      <button onClick={upLoadToFirestore}>Agregar Productos a Firestore</button>
+      {/* <button onClick={upLoadToFirestore}>Agregar Productos a Firestore</button> */}
     </div>
   );
 };

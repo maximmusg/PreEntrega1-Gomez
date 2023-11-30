@@ -8,7 +8,7 @@ import {
   addDoc,
   getFirestore,
   doc,
-  updateDoc,
+  writeBatch,
 } from "firebase/firestore";
 import "./styles.css";
 
@@ -35,7 +35,7 @@ const Cart = () => {
 
   const createOrder = (event) => {
     event.preventDefault();
-    // const db = getFirestore();
+    // const batch = writeBatch(db);
     const querySnapshot = collection(db, "orders");
 
     const newOrder = {
@@ -55,10 +55,17 @@ const Cart = () => {
       ),
     };
 
+    // batch.set(querySnapshotNew, newOrder)
+    // products.forEach((product) => {
+    //   const querySnapshot = doc(db, "products", product.id);
+    //   batch.update(querySnapshot, {
+    //     stock: product.stock - product.quantity,
+    // })
+
     addDoc(querySnapshot, newOrder)
       .then((res) => {
         updateProductStock();
-        alert("orden creada con exito");
+        alert(`ORDEN CREADA CON EXITO! ID: ${res.id}`);
         clear();
         navigate("/");
       })
@@ -66,12 +73,14 @@ const Cart = () => {
   };
 
   const updateProductStock = () => {
+    const batch = writeBatch(db);
     products.forEach((product) => {
       const querySnapshot = doc(db, "products", product.id);
-      updateDoc(querySnapshot, {
+      batch.update(querySnapshot, {
         stock: product.stock - product.quantity,
       });
     });
+    batch.commit().then((res) => console.log("Stock actualizado"));
   };
 
   return (

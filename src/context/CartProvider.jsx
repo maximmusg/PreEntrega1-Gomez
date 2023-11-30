@@ -14,16 +14,25 @@ const CartProvider = ({ children }) => {
     if (isInCart(product.id)) {
       const newProducts = products.map((item) => {
         if (item.id === product.id) {
-          return {
-            ...item,
-            quantity: item.quantity + quantity,
-          };
+          const newQuantity = item.quantity + quantity;
+          if (newQuantity <= product.stock) {
+            return {
+              ...item,
+              quantity: newQuantity,
+            };
+          } else {
+            // Puedes manejar esta situación de alguna manera, como mostrando un mensaje de error
+            alert("Stock insuficiente");
+            return item;
+          }
         }
         return item;
       });
       setProducts(newProducts);
     } else {
-      setProducts([...products, { ...product, quantity }]);
+      quantity <= product.stock
+        ? setProducts([...products, { ...product, quantity }])
+        : alert("No hay stock");
     }
   };
 

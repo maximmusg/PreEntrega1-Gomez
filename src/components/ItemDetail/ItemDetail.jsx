@@ -6,12 +6,13 @@ import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ itemSelected }) => {
   const [count, setCount] = useState(1);
-  const stock = "";
+
   const navigate = useNavigate();
   const { addItem } = useContext(CartContext);
 
   const addToCart = () => {
     addItem(itemSelected, count);
+    navigate("/");
   };
 
   const handleNavigation = () => {
