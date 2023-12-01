@@ -34,19 +34,8 @@
   text-decoration: none;
 }
 
-.btn__home {
-  color: white;
-  background-color: rgb(38, 27, 112);
-  padding: 1rem;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
 .active {
-  color: red;
+  /* color: red; */
   padding: 1rem 1.5rem 3rem;
   border-radius: 2rem 2rem 0 0;
   border-radius: 1rem;
@@ -55,8 +44,9 @@
   -moz-border-radius: 2rem 2rem 0 0;
   -ms-border-radius: 2rem 2rem 0 0;
   -o-border-radius: 2rem 2rem 0 0;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
+  text-decoration: none;
 }
 
 .logo__carrito {

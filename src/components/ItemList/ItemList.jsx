@@ -18,7 +18,6 @@ const ItemList = ({ productList }) => {
           onClick={() => {}}
         >
           <Item
-            className="stylesItemsContaier"
             title={title}
             description={description}
             price={price}

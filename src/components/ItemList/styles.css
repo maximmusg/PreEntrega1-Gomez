@@ -5,6 +5,9 @@
   flex-wrap: wrap;
   min-height: 100vh;
   /* background-color: rebeccapurple; */
+  margin: 0 auto;
+  gap: 1rem;
+  list-style: none;
 }
 
 .stylesItemsContaier {
@@ -15,6 +18,10 @@
   text-decoration: none;
   font-weight: bolder;
   margin-top: 3rem;
+}
+
+.item__details {
+  display: none;
 }
 
 .card__container div {

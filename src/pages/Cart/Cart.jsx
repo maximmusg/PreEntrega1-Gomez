@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
-import Item from "../../components/Item/Item";
+// import Item from "../../components/Item/Item";
+import ItemCart from "../../components/ItemCart/ItemCart";
 import { Form, Button } from "react-bootstrap";
 import {
   collection,
@@ -90,14 +91,14 @@ const Cart = () => {
       <div className="Cart__container">
         <div className="cart__detail">
           {products.length > 0 ? (
-            <div className="card__container">
+            <div className="card__cart">
               {products.map(
                 ({ title, description, price, image, id, quantity }) => (
                   <div key={id} className="cart__product">
                     <div className="item__cart">
-                      <Item
+                      <ItemCart
                         title={title}
-                        // description={description}
+                        description={description}
                         price={price}
                         image={image}
                         quantity={quantity}

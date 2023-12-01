@@ -1,0 +1,18 @@
+.cardInCart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cart__card__img {
+  width: 20%;
+}
+
+.Cart__card__body {
+  width: 10%;
+}
+
+.cart__options {
+  margin: 1rem;
+}

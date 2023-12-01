@@ -26,20 +26,26 @@ const ItemDetail = ({ itemSelected }) => {
       <div className="card__description">
         <h1 className="product__title">{itemSelected?.title}</h1>
         <p className="product__description">{itemSelected?.description}</p>
-        <span>Stock: {itemSelected?.stock - count}</span>
+        <span className="detail__stock">
+          Stock: {itemSelected?.stock - count}
+        </span>
         <p className="product__price">${itemSelected?.price}</p>
         <div>
-          <button onClick={handleNavigation} className="btn btn-primary">
-            Ver el carrito
-          </button>
-          <button onClick={addToCart} className="btn btn-primary">
-            Agregar al carrito
-          </button>
-          <ItemCount
-            count={count}
-            setCount={setCount}
-            stock={itemSelected.stock}
-          />
+          <div className="detail__count">
+            <ItemCount
+              count={count}
+              setCount={setCount}
+              stock={itemSelected.stock}
+            />
+          </div>
+          <div className="detail__buttons">
+            <button onClick={handleNavigation} className="btn btn-primary">
+              Ver el carrito
+            </button>
+            <button onClick={addToCart} className="btn btn-primary">
+              Agregar al carrito
+            </button>
+          </div>
         </div>
       </div>
     </div>

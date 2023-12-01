@@ -34,6 +34,12 @@
   font-weight: 600;
 }
 
+.detail__stock {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
 .product__price {
   font-size: 1.5rem;
   font-weight: 800;
@@ -43,4 +49,17 @@
 .btn__style {
   background-color: red;
   width: 20rem;
+}
+
+.detail__count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.detail__buttons button {
+  /* padding: 0 2rem; */
+  margin: 0 1rem;
 }
