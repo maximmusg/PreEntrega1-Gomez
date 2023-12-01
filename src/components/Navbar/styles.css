@@ -58,3 +58,8 @@
   text-decoration: underline;
   font-weight: bold;
 }
+
+.logo__carrito {
+  color: black;
+  text-decoration: none;
+}

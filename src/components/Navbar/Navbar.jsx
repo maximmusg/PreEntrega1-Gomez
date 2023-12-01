@@ -10,24 +10,17 @@ const Navbar = () => {
   const { productQuantity } = useContext(CartContext);
   return (
     <div className="navbar__container">
+      {/* logo */}
       <div>
         <NavLink to={"/"} className="category__btn">
           {/* <img src={"./logo.png"} alt="logo" className="image__navbar" /> */}
           <h1>mmsg Aromas</h1>
         </NavLink>
       </div>
+      {/* navbar */}
 
       <div>
         <ul className="list__container">
-          <li className="item__list">
-            <NavLink
-              activeclassname="active"
-              to={"/"}
-              className="category__btn btn__home"
-            >
-              Home
-            </NavLink>
-          </li>
           <li className="item__list">
             <NavLink
               activeclassname="active"
@@ -66,11 +59,16 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+      {/* carrito */}
       <div className="cart__container">
-        <CartWidget />
-        <Link to={"/cart"}>
-          <h3>productos : {productQuantity}</h3>
+        {/* <CartWidget /> */}
+        <Link to={"/cart"} className="logo__carrito">
+          <CartWidget productQuantity={productQuantity} />
+          {/* <h3>productos : {productQuantity}</h3> */}
         </Link>
+      </div>
+      {/* setTheme */}
+      <div>
         <button
           onClick={() =>
             setTheme((currentValue) =>

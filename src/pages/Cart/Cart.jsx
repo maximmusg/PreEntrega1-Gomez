@@ -85,82 +85,84 @@ const Cart = () => {
 
   return (
     <div>
-      <div>
-        <h1>Tu carrito de compras:</h1>
+      <h1 className="cart__title">Tu carrito de compras:</h1>
 
-        <button onClick={clear}>Vaciar carrito</button>
+      <div className="Cart__container">
+        <div className="cart__detail">
+          {products.length > 0 ? (
+            <div className="card__container">
+              {products.map(
+                ({ title, description, price, image, id, quantity }) => (
+                  <div key={id} className="cart__product">
+                    <div className="item__cart">
+                      <Item
+                        title={title}
+                        // description={description}
+                        price={price}
+                        image={image}
+                        quantity={quantity}
+                        action={() => removeItem(id)}
+                        textButton="Eliminar"
+                      />
 
-        <Form className="form">
-          <Form.Group className="mb-3 formulario">
-            <Form.Label>Nombre</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ingresa tu nombre"
-              value={formValue.name}
-              onChange={handleImput}
-              name="name"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3 formulario">
-            <Form.Label>Telefono</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ingresa tu teléfono"
-              value={formValue.phone}
-              onChange={handleImput}
-              name="phone"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3 formulario">
-            <Form.Label>Direccion de E-Mail</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ingresa tu correo electrónico"
-              value={formValue.email}
-              onChange={handleImput}
-              name="email"
-            />
-          </Form.Group>
-          <Button
-            variant="primary"
-            onClick={createOrder}
-            type="submit"
-            className="confirmar"
-            disabled={validateForm}
-          >
-            Confirmar compra
-          </Button>
-        </Form>
-
-        {products.length > 0 ? (
-          <div className="card__container">
-            {products.map(
-              ({ title, description, price, image, id, quantity }) => (
-                <div key={id} className="cart__product">
-                  <div>
-                    <Item
-                      title={title}
-                      description={description}
-                      price={price}
-                      image={image}
-                      quantity={quantity}
-                      action={() => removeItem(id)}
-                      textButton="Eliminar"
-                    />
-
-                    {/* <h5>Cantidad: {quantity} </h5> */}
-                  </div>
-                  {/* <h5>Cantidad: {quantity} </h5>
+                      {/* <h5>Cantidad: {quantity} </h5> */}
+                    </div>
+                    {/* <h5>Cantidad: {quantity} </h5>
                   <button onClick={() => removeItem(id)}>Eliminar</button> */}
-                </div>
-              )
-            )}
-          </div>
-        ) : (
-          <h2>Su carrito se encuentra Vacío</h2>
-        )}
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            <h2>Su carrito se encuentra Vacío</h2>
+          )}
+        </div>
+        <div className="cart__finish">
+          <Form className="form">
+            <Form.Group className="mb-3 formulario">
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingresa tu nombre"
+                value={formValue.name}
+                onChange={handleImput}
+                name="name"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3 formulario">
+              <Form.Label>Telefono</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingresa tu teléfono"
+                value={formValue.phone}
+                onChange={handleImput}
+                name="phone"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3 formulario">
+              <Form.Label>Direccion de E-Mail</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingresa tu correo electrónico"
+                value={formValue.email}
+                onChange={handleImput}
+                name="email"
+              />
+            </Form.Group>
+            <Button
+              variant="primary"
+              onClick={createOrder}
+              type="submit"
+              className="confirmar"
+              disabled={validateForm}
+            >
+              Confirmar compra
+            </Button>
+          </Form>
+          <button onClick={clear}>Vaciar carrito</button>;
+        </div>
       </div>
     </div>
   );

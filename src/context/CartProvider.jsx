@@ -21,8 +21,9 @@ const CartProvider = ({ children }) => {
               quantity: newQuantity,
             };
           } else {
-            // Puedes manejar esta situación de alguna manera, como mostrando un mensaje de error
-            alert("Stock insuficiente");
+            alert(
+              "Stock insuficiente! Ya hay cantidad de este producto agregado en el carrito!"
+            );
             return item;
           }
         }
@@ -32,7 +33,7 @@ const CartProvider = ({ children }) => {
     } else {
       quantity <= product.stock
         ? setProducts([...products, { ...product, quantity }])
-        : alert("No hay stock");
+        : console.log("No hay stock");
     }
   };
 

@@ -11,6 +11,7 @@ import {
   where,
   // addDoc,
 } from "firebase/firestore";
+import "./styles.css";
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([]);

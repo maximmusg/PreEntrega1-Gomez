@@ -9,7 +9,7 @@ const ItemList = ({ productList }) => {
       <span className="visually-hidden ">Loading...</span>
     </Spinner>
   ) : (
-    <div className="card__container">
+    <div className="card__container ">
       {productList.map(({ title, description, price, image, id, quantity }) => (
         <Link
           className="styles__item"
@@ -18,6 +18,7 @@ const ItemList = ({ productList }) => {
           onClick={() => {}}
         >
           <Item
+            className="stylesItemsContaier"
             title={title}
             description={description}
             price={price}

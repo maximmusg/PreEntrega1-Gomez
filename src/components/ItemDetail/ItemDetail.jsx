@@ -6,7 +6,6 @@ import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ itemSelected }) => {
   const [count, setCount] = useState(1);
-
   const navigate = useNavigate();
   const { addItem } = useContext(CartContext);
 
@@ -27,7 +26,7 @@ const ItemDetail = ({ itemSelected }) => {
       <div className="card__description">
         <h1 className="product__title">{itemSelected?.title}</h1>
         <p className="product__description">{itemSelected?.description}</p>
-        <span>Stock: {itemSelected?.stock}</span>
+        <span>Stock: {itemSelected?.stock - count}</span>
         <p className="product__price">${itemSelected?.price}</p>
         <div>
           <button onClick={handleNavigation} className="btn btn-primary">
