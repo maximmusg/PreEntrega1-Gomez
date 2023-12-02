@@ -74,13 +74,13 @@ const Cart = () => {
         setOrderID(res.id);
         setShowModal(true);
         clear();
-        // navigate("/");
       })
       .catch((err) => alert("error al crear la orden"));
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
+    navigate("/");
   };
 
   const updateProductStock = () => {
@@ -182,6 +182,7 @@ const Cart = () => {
                 show={showModal}
                 handleClose={handleCloseModal}
                 orderID={orderID}
+                totalCarrito={totalCarrito}
               />
             )}
           </Form>

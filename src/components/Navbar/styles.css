@@ -8,7 +8,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  background-color: #7916ff;
+  background-color: #4a548c;
+  height: 10rem;
 }
 
 .image__navbar {
@@ -27,7 +28,7 @@
 .category__btn {
   background-color: transparent;
   border: none;
-  color: rgb(38, 27, 112);
+  color: #75bfbf;
   font-size: 1.5rem;
   font-weight: 800;
   cursor: pointer;
@@ -35,11 +36,11 @@
 }
 
 .active {
-  /* color: red; */
+  color: #8c3c2a;
   padding: 1rem 1.5rem 3rem;
   border-radius: 2rem 2rem 0 0;
   border-radius: 1rem;
-  background-color: white;
+  /* background-color: white; */
   -webkit-border-radius: 2rem 2rem 0 0;
   -moz-border-radius: 2rem 2rem 0 0;
   -ms-border-radius: 2rem 2rem 0 0;
@@ -50,6 +51,6 @@
 }
 
 .logo__carrito {
-  color: black;
+  color: #75bfbf;
   text-decoration: none;
 }

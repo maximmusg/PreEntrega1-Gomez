@@ -66,7 +66,7 @@ const ItemListContainer = () => {
   return (
     <div
       style={{
-        backgroundColor: colorTheme.theme === "light" ? "white" : "black",
+        backgroundColor: colorTheme.theme === "light" ? "#D9AB9A" : "#302927",
       }}
       className="item__Container"
     >
