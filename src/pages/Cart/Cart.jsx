@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 // import Item from "../../components/Item/Item";
 import ItemCart from "../../components/ItemCart/ItemCart";
+import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
 import { Form, Button } from "react-bootstrap";
 import {
   collection,
@@ -14,6 +15,9 @@ import {
 import "./styles.css";
 
 const Cart = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [orderID, setOrderID] = useState(null);
+
   const [formValue, setFormValue] = useState({
     name: "",
     phone: "",
@@ -66,11 +70,17 @@ const Cart = () => {
     addDoc(querySnapshot, newOrder)
       .then((res) => {
         updateProductStock();
-        alert(`ORDEN CREADA CON EXITO! ID: ${res.id}`);
+        // alert(`ORDEN CREADA CON EXITO! ID: ${res.id}`);
+        setOrderID(res.id);
+        setShowModal(true);
         clear();
-        navigate("/");
+        // navigate("/");
       })
       .catch((err) => alert("error al crear la orden"));
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   const updateProductStock = () => {
@@ -92,7 +102,6 @@ const Cart = () => {
   return (
     <div>
       <h1 className="cart__title">Tu carrito de compras:</h1>
-
       <div className="Cart__container">
         <div className="cart__detail">
           {products.length > 0 ? (
@@ -168,7 +177,15 @@ const Cart = () => {
             >
               Confirmar compra
             </Button>
+            {showModal && (
+              <CheckOutModal
+                show={showModal}
+                handleClose={handleCloseModal}
+                orderID={orderID}
+              />
+            )}
           </Form>
+
           <div>
             <button onClick={clear}>Vaciar carrito</button>;
           </div>
