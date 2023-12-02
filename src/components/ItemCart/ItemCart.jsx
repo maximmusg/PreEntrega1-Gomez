@@ -2,15 +2,7 @@ import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import "./styles.css";
 
-const ItemCart = ({
-  title,
-  description,
-  price,
-  image,
-  quantity,
-  action,
-  textButton,
-}) => {
+const ItemCart = ({ title, price, image, quantity, action, textButton }) => {
   return (
     <div>
       <Card className="cardInCart">
@@ -31,6 +23,7 @@ const ItemCart = ({
                 <Button onClick={() => action()}>{textButton}</Button>
               )}
             </div>
+            <div></div>
           </div>
         </Card.Body>
       </Card>

@@ -84,6 +84,11 @@ const Cart = () => {
     batch.commit().then((res) => console.log("Stock actualizado"));
   };
 
+  const totalCarrito = products.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0
+  );
+
   return (
     <div>
       <h1 className="cart__title">Tu carrito de compras:</h1>
@@ -105,7 +110,7 @@ const Cart = () => {
                         action={() => removeItem(id)}
                         textButton="Eliminar"
                       />
-
+                      <h5>Subtotal: ${price * quantity}</h5>
                       {/* <h5>Cantidad: {quantity} </h5> */}
                     </div>
                     {/* <h5>Cantidad: {quantity} </h5>
@@ -152,6 +157,8 @@ const Cart = () => {
                 name="email"
               />
             </Form.Group>
+            <h4 className="total__carrito">Total: {totalCarrito}</h4>
+
             <Button
               variant="primary"
               onClick={createOrder}
@@ -162,7 +169,9 @@ const Cart = () => {
               Confirmar compra
             </Button>
           </Form>
-          <button onClick={clear}>Vaciar carrito</button>;
+          <div>
+            <button onClick={clear}>Vaciar carrito</button>;
+          </div>
         </div>
       </div>
     </div>

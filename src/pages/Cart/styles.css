@@ -13,6 +13,7 @@
   /* flex-wrap: nowrap; */
   width: 80%;
   border: 1px solid red;
+  padding-bottom: 10rem;
 }
 
 .card__cart {
@@ -44,4 +45,8 @@
 
 .cart__product {
   /* display: none; */
+}
+
+.total__carrito {
+  text-align: center;
 }
