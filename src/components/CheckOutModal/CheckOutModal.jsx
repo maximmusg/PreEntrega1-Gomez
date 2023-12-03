@@ -12,21 +12,30 @@ const CheckOutModal = ({ show, handleClose, orderID, totalCarrito }) => {
         size="lg"
         onHide={handleClose}
       >
-        <Modal.Header closeButton>
+        <Modal.Header className="modal__header">
           <Modal.Title className="modal__title">
             ¡Su compra fue completada con éxito!
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal__body">
           <h4>
-            Número de orden: <span>{orderID}</span>
+            Número de orden: <span className="modal__orderID">{orderID}</span>
           </h4>
-          <h3>Su total a pagar es de: ${totalCarrito}</h3>
-          <p>Recibira las instricciones del pago en su Correo Electronico </p>
-          <h5 className="">¡Muchas Gracias!</h5>
+          <h3>
+            Su total a pagar es de:{" "}
+            <span className="modal__price"> ${totalCarrito}</span>
+          </h3>
+          <p className="modal__instructions">
+            Recibira las instricciones del pago en su Correo Electronico{" "}
+          </p>
+          <h5 className="modal__thnx">¡Muchas Gracias!</h5>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            className="btn__styleCartDelete"
+            variant="secondary"
+            onClick={handleClose}
+          >
             Cerrar
           </Button>
         </Modal.Footer>

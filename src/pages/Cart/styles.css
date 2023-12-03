@@ -13,13 +13,15 @@
   justify-content: space-around;
   flex-wrap: nowrap;
   width: 80%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-bottom: 10rem;
 }
 
 .card__cart {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  width: 90%;
 }
 
 .cart__detail {
@@ -30,22 +32,22 @@
 }
 
 .cart__finish {
-  border: 1px solid blue;
-  padding: 1.5rem;
-  width: 30%;
+  /* border: 1px solid blue; */
+  padding: 4rem;
+  width: 60%;
+  border: 3px solid #8c3c2a;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  /* width: 0rem; */
   width: 100%;
 }
 
 .cart__product {
-  /* display: none; */
+  margin: 0 auto;
+  padding: 0;
 }
 
 .total__carrito {
@@ -80,7 +82,8 @@
   margin: 0 auto;
   padding: 0.6rem;
   font-size: 1rem;
-  background-color: #4a548c;
+  background-color: rgb(168, 2, 2);
+  /* background-color: #4a548c; */
   color: white;
   font-weight: bold;
   border-radius: 0.5rem;
@@ -95,8 +98,17 @@
   -o-border-radius: 0.5rem;
 }
 
+.btn__delete__all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .btn__styleCartDelete:hover {
-  background-color: rgb(168, 2, 2);
+  /* background-color: rgb(168, 2, 2); */
+  background-color: rgb(255, 0, 0);
+  color: black;
 }
 
 .btn__styleCart:hover {
@@ -106,4 +118,16 @@
 
 .btn__styleCart:disabled {
   background-color: rgb(206, 202, 202);
+}
+
+.item__cart {
+  margin: auto;
+  /* border: 1px solid black; */
+  align-items: center;
+  padding: 0 1rem;
+  width: 80%;
+}
+
+.Cart__card__body {
+  width: 20rem;
 }

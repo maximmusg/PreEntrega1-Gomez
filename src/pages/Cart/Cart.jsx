@@ -188,10 +188,12 @@ const Cart = () => {
           </Form>
 
           <div>
-            <button className="btn__styleCartDelete" onClick={clear}>
+            <button
+              className="btn__styleCartDelete btn__delete__all"
+              onClick={clear}
+            >
               Vaciar carrito
             </button>
-            ;
           </div>
         </div>
       </div>
