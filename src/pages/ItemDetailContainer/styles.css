@@ -1,0 +1,11 @@
+.itemDetail {
+  background-color: #f2cdc4;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  /* background-color: rebeccapurple; */
+  margin: 0 auto;
+  gap: 1rem;
+  list-style: none;
+}

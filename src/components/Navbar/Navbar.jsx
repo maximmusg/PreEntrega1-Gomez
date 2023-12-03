@@ -12,10 +12,10 @@ const Navbar = () => {
     <div className="navbar__container">
       {/* logo */}
       <div>
-        <NavLink to={"/"} className="category__btn">
+        <Link to={"/"} className="category__btn">
           {/* <img src={"./logo.png"} alt="logo" className="image__navbar" /> */}
           <h1>mmsg Aromas</h1>
-        </NavLink>
+        </Link>
       </div>
       {/* navbar */}
 
@@ -62,22 +62,21 @@ const Navbar = () => {
       {/* carrito */}
       <div className="cart__container">
         {/* <CartWidget /> */}
-        <Link to={"/cart"} className="logo__carrito">
+        <NavLink to={"/cart"} className="logo__carrito">
           <CartWidget productQuantity={productQuantity} />
-          {/* <h3>productos : {productQuantity}</h3> */}
-        </Link>
+        </NavLink>
       </div>
       {/* setTheme */}
       <div>
         <button
+          className="btn__style"
           onClick={() =>
             setTheme((currentValue) =>
               currentValue === "light" ? "dark" : "light"
             )
           }
         >
-          {" "}
-          Cambia el tema{" "}
+          Cambia el tema
         </button>
       </div>
     </div>

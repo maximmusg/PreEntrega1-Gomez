@@ -23,7 +23,11 @@ const ItemDetailContainer = () => {
     fetchProduct();
   }, []);
   console.log(id);
-  return <div>{id && <ItemDetail itemSelected={product} />}</div>;
+  return (
+    <div className="itemDetail">
+      {id && <ItemDetail itemSelected={product} />}
+    </div>
+  );
 };
 
 export default ItemDetailContainer;

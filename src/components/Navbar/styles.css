@@ -36,8 +36,8 @@
 }
 
 .active {
-  color: #8c3c2a;
-  padding: 1rem 1.5rem 3rem;
+  color: black;
+  font-weight: bold;
   border-radius: 2rem 2rem 0 0;
   border-radius: 1rem;
   /* background-color: white; */
@@ -46,8 +46,6 @@
   -ms-border-radius: 2rem 2rem 0 0;
   -o-border-radius: 2rem 2rem 0 0;
   /* text-decoration: underline; */
-  font-weight: bold;
-  text-decoration: none;
 }
 
 .logo__carrito {

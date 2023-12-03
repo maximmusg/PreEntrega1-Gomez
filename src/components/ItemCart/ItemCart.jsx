@@ -20,7 +20,12 @@ const ItemCart = ({ title, price, image, quantity, action, textButton }) => {
             <div>{quantity && <span>Cantidad: {quantity}</span>}</div>
             <div>
               {action && textButton && (
-                <Button onClick={() => action()}>{textButton}</Button>
+                <Button
+                  className="btn__styleCartDelete"
+                  onClick={() => action()}
+                >
+                  {textButton}
+                </Button>
               )}
             </div>
             <div></div>

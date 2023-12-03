@@ -24,5 +24,11 @@
 }
 
 .card__title {
-  color: #75bfbf;
+  color: #8c3c2a;
+  font-weight: bolder;
+}
+
+.card__price {
+  color: #8c3c2a;
+  font-weight: bold;
 }

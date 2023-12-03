@@ -9,7 +9,7 @@ const Item = ({ title, description, price, image }) => {
           <Card.Title className="card__title">{title}</Card.Title>
           <Card.Img variant="top" src={image} alt={title} />
           <Card.Text>{description}</Card.Text>
-          <h3>${price}</h3>
+          <h3 className="card__price">${price}</h3>
         </Card.Body>
       </Card>
     </div>

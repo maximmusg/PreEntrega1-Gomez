@@ -172,7 +172,7 @@ const Cart = () => {
               variant="primary"
               onClick={createOrder}
               type="submit"
-              className="confirmar"
+              className="btn__styleCart"
               disabled={validateForm}
             >
               Confirmar compra
@@ -188,7 +188,10 @@ const Cart = () => {
           </Form>
 
           <div>
-            <button onClick={clear}>Vaciar carrito</button>;
+            <button className="btn__styleCartDelete" onClick={clear}>
+              Vaciar carrito
+            </button>
+            ;
           </div>
         </div>
       </div>

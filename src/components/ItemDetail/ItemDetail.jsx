@@ -1,8 +1,9 @@
-import "./styles.css";
+// import { Button } from "react-bootstrap";
 import ItemCount from "../ItemCount/ItemCount";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
+import "./styles.css";
 
 const ItemDetail = ({ itemSelected }) => {
   const [count, setCount] = useState(1);
@@ -39,10 +40,10 @@ const ItemDetail = ({ itemSelected }) => {
             />
           </div>
           <div className="detail__buttons">
-            <button onClick={handleNavigation} className="btn btn-primary">
+            <button onClick={handleNavigation} className="btn__style">
               Ver el carrito
             </button>
-            <button onClick={addToCart} className="btn btn-primary">
+            <button onClick={addToCart} className="btn__style">
               Agregar al carrito
             </button>
           </div>
