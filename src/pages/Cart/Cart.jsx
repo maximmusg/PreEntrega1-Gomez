@@ -73,7 +73,6 @@ const Cart = () => {
         // alert(`ORDEN CREADA CON EXITO! ID: ${res.id}`);
         setOrderID(res.id);
         setShowModal(true);
-        clear();
       })
       .catch((err) => alert("error al crear la orden"));
   };
@@ -81,6 +80,7 @@ const Cart = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     navigate("/");
+    clear();
   };
 
   const updateProductStock = () => {

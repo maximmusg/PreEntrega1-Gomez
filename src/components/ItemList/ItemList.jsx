@@ -5,9 +5,11 @@ import "./styles.css";
 
 const ItemList = ({ productList }) => {
   return productList.length === 0 ? (
-    <Spinner animation="border" role="status" size="xl" className="spinner">
-      <span className="visually-hidden ">Loading...</span>
-    </Spinner>
+    <div className="spinner__container">
+      <Spinner animation="border" role="status" size="xl" className="spinner">
+        <span className="visually-hidden ">Loading...</span>
+      </Spinner>
+    </div>
   ) : (
     <div className="card__container ">
       {productList.map(({ title, description, price, image, id, quantity }) => (

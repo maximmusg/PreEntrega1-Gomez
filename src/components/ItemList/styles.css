@@ -29,6 +29,14 @@
   text-align: center;
 }
 
+.spinner__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .spinner {
   display: flex;
   margin: 10rem auto;
