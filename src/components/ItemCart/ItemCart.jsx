@@ -1,8 +1,19 @@
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
-const ItemCart = ({ title, price, image, quantity, action, textButton }) => {
+const ItemCart = ({
+  id,
+  title,
+  price,
+  image,
+  quantity,
+  action,
+  textButton,
+  // actionDetails,
+  // textDetailsButton,
+}) => {
   return (
     <div>
       <Card className="cardInCart">
@@ -28,7 +39,11 @@ const ItemCart = ({ title, price, image, quantity, action, textButton }) => {
                 </Button>
               )}
             </div>
-            <div></div>
+            <div>
+              <Link to={`/item/${id}`}>
+                <Button className="btn__styleDetail">Ver detalles</Button>
+              </Link>
+            </div>
           </div>
         </Card.Body>
       </Card>

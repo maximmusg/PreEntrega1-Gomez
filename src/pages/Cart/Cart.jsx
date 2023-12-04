@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 // import Item from "../../components/Item/Item";
 import ItemCart from "../../components/ItemCart/ItemCart";
@@ -100,7 +100,7 @@ const Cart = () => {
   );
 
   return (
-    <div>
+    <div className="cart">
       <h1 className="cart__title">Tu carrito de compras:</h1>
       <div className="Cart__container">
         <div className="cart__detail">
@@ -110,7 +110,12 @@ const Cart = () => {
                 ({ title, description, price, image, id, quantity }) => (
                   <div key={id} className="cart__product">
                     <div className="item__cart">
+                      {/* <Link
+                        to={`/item/${id}`}
+                        className="item__details__button"
+                      > */}
                       <ItemCart
+                        id={id}
                         title={title}
                         description={description}
                         price={price}
@@ -118,7 +123,9 @@ const Cart = () => {
                         quantity={quantity}
                         action={() => removeItem(id)}
                         textButton="Eliminar"
+                        // actionDetails={() => }
                       />
+                      {/* </Link> */}
                       <h5>Subtotal: ${price * quantity}</h5>
                       {/* <h5>Cantidad: {quantity} </h5> */}
                     </div>
