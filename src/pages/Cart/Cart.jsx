@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
+import { ThemeContext } from "../../context/ThemeContext";
+
 // import Item from "../../components/Item/Item";
 import ItemCart from "../../components/ItemCart/ItemCart";
 import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
@@ -28,6 +30,8 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const db = getFirestore();
+
+  const colorTheme = useContext(ThemeContext);
 
   const handleImput = (event) => {
     // console.log(e.target.value);
@@ -100,7 +104,14 @@ const Cart = () => {
   );
 
   return (
-    <div className="cart">
+    <div
+      style={{
+        color: colorTheme.theme === "light" ? "black" : "white",
+
+        backgroundColor: colorTheme.theme === "light" ? "#D9AB9A" : "#302927",
+      }}
+      className="cart"
+    >
       <h1 className="cart__title">Tu carrito de compras:</h1>
       <div className="Cart__container">
         <div className="cart__detail">

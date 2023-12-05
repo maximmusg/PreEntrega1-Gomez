@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
+
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./styles.css";
@@ -7,6 +9,7 @@ import "./styles.css";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  const colorTheme = useContext(ThemeContext);
 
   const fetchProduct = () => {
     const db = getFirestore();
@@ -24,7 +27,14 @@ const ItemDetailContainer = () => {
   }, []);
   console.log(id);
   return (
-    <div className="itemDetail">
+    <div
+      style={{
+        color: colorTheme.theme === "light" ? "black" : "white",
+
+        backgroundColor: colorTheme.theme === "light" ? "#D9AB9A" : "#302927",
+      }}
+      className="itemDetail"
+    >
       {id && <ItemDetail itemSelected={product} />}
     </div>
   );

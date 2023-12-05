@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
@@ -24,12 +25,16 @@ const ItemCart = ({
           alt={title}
         />
         <Card.Body className="Cart__card__body">
-          <Card.Title>{title}</Card.Title>
-          {/* <Card.Text>{description}</Card.Text> */}
-          <h3>${price}</h3>
-          <div className="cart__options">
+          <div>
+            <Card.Title>{title}</Card.Title>
+            {/* <Card.Text>{description}</Card.Text> */}
+            <h3>${price}</h3>
             <div>{quantity && <span>Cantidad: {quantity}</span>}</div>
-            <div>
+          </div>
+          <div></div>
+
+          <div className="cart__options">
+            <div className="cart__btns">
               {action && textButton && (
                 <Button
                   className="btn__styleCartDelete"
@@ -41,7 +46,7 @@ const ItemCart = ({
             </div>
             <div>
               <Link to={`/item/${id}`}>
-                <Button className="btn__styleDetail">Ver detalles</Button>
+                <Button className="btn__styleCartDetails">Ver detalles</Button>
               </Link>
             </div>
           </div>
