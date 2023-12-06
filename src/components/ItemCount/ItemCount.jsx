@@ -7,7 +7,6 @@ const ItemCount = ({ stock, setCount, count }) => {
   renderCount.current++;
 
   const onAdd = () => {
-    // if (count === stock) return;
     setCount(count + 1);
   };
   const onSub = () => {
@@ -20,7 +19,7 @@ const ItemCount = ({ stock, setCount, count }) => {
       <Button variant="outline-primary" className="btnCount" onClick={onSub}>
         -
       </Button>
-      <h2>{count}</h2>
+      <h2 className="count__number">{count}</h2>
       {count === stock ? null : (
         <Button variant="outline-primary" className="btnCount" onClick={onAdd}>
           +

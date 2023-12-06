@@ -1,9 +1,27 @@
 .count__container {
-  margin: 1rem;
+  margin-bottom: 2.6rem;
   display: flex;
   flex-direction: row;
-  gap: 1.3rem;
+  gap: 1.4rem;
 }
 .btn__style {
   width: 3rem;
+}
+
+.btnCount {
+  margin: 0 auto;
+  width: 3.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+
+  border: 3px solid #8c3c2a;
+}
+.btnCount:hover {
+  background-color: #4a548c;
+}
+
+.count__number {
+  color: black;
+  font-weight: bold;
 }

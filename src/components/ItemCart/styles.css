@@ -9,6 +9,11 @@
 
 .Cart__card__body {
   display: flex;
+  justify-content: end;
+}
+
+.cart__info {
+  width: 100%;
 }
 
 .cart__card__img {
@@ -22,16 +27,13 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* margin: 1rem; */
   gap: 0.5rem;
 }
 
 .cart__options {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   justify-content: space-evenly;
-  /* margin: 0 auto; */
 }
 
 .btn__styleCartDetails {

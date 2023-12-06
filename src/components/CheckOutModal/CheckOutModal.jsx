@@ -19,7 +19,8 @@ const CheckOutModal = ({ show, handleClose, orderID, totalCarrito }) => {
         </Modal.Header>
         <Modal.Body className="modal__body">
           <h4>
-            Número de orden: <span className="modal__orderID">{orderID}</span>
+            Número de orden:{""}
+            <span className="modal__orderID"># {orderID}</span>
           </h4>
           <h3>
             Su total a pagar es de:{" "}

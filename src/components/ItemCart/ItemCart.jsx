@@ -12,8 +12,6 @@ const ItemCart = ({
   quantity,
   action,
   textButton,
-  // actionDetails,
-  // textDetailsButton,
 }) => {
   return (
     <div>
@@ -25,14 +23,11 @@ const ItemCart = ({
           alt={title}
         />
         <Card.Body className="Cart__card__body">
-          <div>
+          <div className="cart__info">
             <Card.Title>{title}</Card.Title>
-            {/* <Card.Text>{description}</Card.Text> */}
             <h3>${price}</h3>
             <div>{quantity && <span>Cantidad: {quantity}</span>}</div>
           </div>
-          <div></div>
-
           <div className="cart__options">
             <div className="cart__btns">
               {action && textButton && (
