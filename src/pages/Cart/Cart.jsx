@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import { ThemeContext } from "../../context/ThemeContext";
 
-// import Item from "../../components/Item/Item";
 import ItemCart from "../../components/ItemCart/ItemCart";
 import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
 import { Form, Button } from "react-bootstrap";
@@ -19,6 +18,7 @@ import "./styles.css";
 const Cart = () => {
   const [showModal, setShowModal] = useState(false);
   const [orderID, setOrderID] = useState(null);
+  const [orderDate, setOrderDate] = useState(null);
 
   const [formValue, setFormValue] = useState({
     name: "",
@@ -34,8 +34,6 @@ const Cart = () => {
   const colorTheme = useContext(ThemeContext);
 
   const handleImput = (event) => {
-    // console.log(e.target.value);
-    // console.log(e.target.name);
     setFormValue({ ...formValue, [event.target.name]: event.target.value });
   };
 
@@ -44,7 +42,6 @@ const Cart = () => {
 
   const createOrder = (event) => {
     event.preventDefault();
-    // const batch = writeBatch(db);
     const querySnapshot = collection(db, "orders");
 
     const newOrder = {
@@ -64,17 +61,11 @@ const Cart = () => {
       ),
     };
 
-    // batch.set(querySnapshotNew, newOrder)
-    // products.forEach((product) => {
-    //   const querySnapshot = doc(db, "products", product.id);
-    //   batch.update(querySnapshot, {
-    //     stock: product.stock - product.quantity,
-    // })
+    setOrderDate(newOrder.Date);
 
     addDoc(querySnapshot, newOrder)
       .then((res) => {
         updateProductStock();
-        // alert(`ORDEN CREADA CON EXITO! ID: ${res.id}`);
         setOrderID(res.id);
         setShowModal(true);
       })
@@ -121,10 +112,6 @@ const Cart = () => {
                 ({ title, description, price, image, id, quantity }) => (
                   <div key={id} className="cart__product">
                     <div className="item__cart">
-                      {/* <Link
-                        to={`/item/${id}`}
-                        className="item__details__button"
-                      > */}
                       <ItemCart
                         id={id}
                         title={title}
@@ -134,14 +121,9 @@ const Cart = () => {
                         quantity={quantity}
                         action={() => removeItem(id)}
                         textButton="Eliminar"
-                        // actionDetails={() => }
                       />
-                      {/* </Link> */}
                       <h5>Subtotal: ${price * quantity}</h5>
-                      {/* <h5>Cantidad: {quantity} </h5> */}
                     </div>
-                    {/* <h5>Cantidad: {quantity} </h5>
-                  <button onClick={() => removeItem(id)}>Eliminar</button> */}
                   </div>
                 )
               )}
@@ -164,7 +146,7 @@ const Cart = () => {
             </Form.Group>
 
             <Form.Group className="mb-3 formulario">
-              <Form.Label>Telefono</Form.Label>
+              <Form.Label>Teléfono</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ingresa tu teléfono"
@@ -191,7 +173,7 @@ const Cart = () => {
               onClick={createOrder}
               type="submit"
               className="btn__styleCart"
-              disabled={validateForm}
+              disabled={validateForm || products.length === 0}
             >
               Confirmar compra
             </Button>
@@ -201,6 +183,7 @@ const Cart = () => {
                 handleClose={handleCloseModal}
                 orderID={orderID}
                 totalCarrito={totalCarrito}
+                orderDate={orderDate}
               />
             )}
           </Form>

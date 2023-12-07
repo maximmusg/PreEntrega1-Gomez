@@ -1,10 +1,16 @@
 import { Modal, Button } from "react-bootstrap";
 import "./styles.css";
 
-const CheckOutModal = ({ show, handleClose, orderID, totalCarrito }) => {
+const CheckOutModal = ({
+  show,
+  handleClose,
+  orderID,
+  totalCarrito,
+  orderDate,
+}) => {
   console.log(`total en carrito: ${totalCarrito}`);
   return (
-    <div>
+    <>
       <Modal
         className="modal__checkout"
         centered
@@ -22,12 +28,13 @@ const CheckOutModal = ({ show, handleClose, orderID, totalCarrito }) => {
             Número de orden:{""}
             <span className="modal__orderID"># {orderID}</span>
           </h4>
+          <p>Fecha de compra: {orderDate.toLocaleDateString()}</p>
           <h3>
             Su total a pagar es de:{" "}
             <span className="modal__price"> ${totalCarrito}</span>
           </h3>
           <p className="modal__instructions">
-            Recibira las instricciones del pago en su Correo Electronico{" "}
+            Recibirá las instrucciones del pago en su Correo Electrónico{" "}
           </p>
           <h5 className="modal__thnx">¡Muchas Gracias!</h5>
         </Modal.Body>
@@ -41,7 +48,7 @@ const CheckOutModal = ({ show, handleClose, orderID, totalCarrito }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 };
 

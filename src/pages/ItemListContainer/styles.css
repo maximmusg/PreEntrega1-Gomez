@@ -1,0 +1,8 @@
+.category__name {
+  text-align: center;
+  padding-top: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  color: #8c3c2a;
+}

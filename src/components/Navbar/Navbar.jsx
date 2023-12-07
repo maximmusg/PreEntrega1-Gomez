@@ -13,7 +13,6 @@ const Navbar = () => {
       {/* logo */}
       <div>
         <Link to={"/"} className="category__btn">
-          {/* <img src={"./logo.png"} alt="logo" className="image__navbar" /> */}
           <h1>mmsg Aromas</h1>
         </Link>
       </div>

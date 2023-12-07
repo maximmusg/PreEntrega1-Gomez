@@ -19,12 +19,11 @@
 .list__container {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
   list-style-type: none;
 }
 
-/* #5a03d5 */
 .category__btn {
   background-color: transparent;
   border: none;
@@ -40,12 +39,10 @@
   font-weight: bold;
   border-radius: 2rem 2rem 0 0;
   border-radius: 1rem;
-  /* background-color: white; */
   -webkit-border-radius: 2rem 2rem 0 0;
   -moz-border-radius: 2rem 2rem 0 0;
   -ms-border-radius: 2rem 2rem 0 0;
   -o-border-radius: 2rem 2rem 0 0;
-  /* text-decoration: underline; */
 }
 
 .logo__carrito {

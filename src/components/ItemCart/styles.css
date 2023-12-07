@@ -9,7 +9,7 @@
 
 .Cart__card__body {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .cart__info {

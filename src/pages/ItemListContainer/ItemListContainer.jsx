@@ -15,6 +15,7 @@ import "./styles.css";
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
   const { id } = useParams();
   const colorTheme = useContext(ThemeContext);
 
@@ -53,6 +54,12 @@ const ItemListContainer = () => {
         }));
 
         setProductList(products);
+        if (id) {
+          const categoryName = products.length > 0 ? products[0].category : "";
+          setCategoryName(categoryName);
+        } else {
+          setCategoryName("");
+        }
       })
       .catch((er) => {
         console.error("Error en la carga de los productos:", er);
@@ -61,7 +68,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, []);
 
   return (
     <div
@@ -70,6 +77,7 @@ const ItemListContainer = () => {
       }}
       className="item__Container"
     >
+      {id && <h2 className="category__name">{categoryName}</h2>}
       <ItemList productList={productList} />
 
       {/* <button onClick={upLoadToFirestore}>Agregar Productos a Firestore</button> */}

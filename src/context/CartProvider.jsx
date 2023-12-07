@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
 import CartContext from "./CartContext";
-// import CartWidget from "../components/CartWidget/CartWidget";
 
 const CartProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productQuantity, setProductQuantity] = useState(0);
-
-  // const saveInLocalStorage = (products) => {
-  //   localStorage.setItem("products", JSON.stringify(products));
-  // };
 
   const addItem = (product, quantity) => {
     if (isInCart(product.id)) {
