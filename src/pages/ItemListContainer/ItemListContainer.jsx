@@ -68,7 +68,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <div
