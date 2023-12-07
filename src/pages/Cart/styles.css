@@ -51,6 +51,11 @@
   -o-border-radius: 1rem;
 }
 
+.cart__empty {
+  font-weight: bold;
+  padding: 3rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;

@@ -6,6 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import ItemCart from "../../components/ItemCart/ItemCart";
 import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {
   collection,
   addDoc,
@@ -129,7 +130,12 @@ const Cart = () => {
               )}
             </div>
           ) : (
-            <h2>Su carrito se encuentra Vacío</h2>
+            <div>
+              <h2 className="cart__empty">Su carrito se encuentra Vacío</h2>
+              <Link to={"/"}>
+                <button className="btn__styleCart">Ver Productos</button>
+              </Link>
+            </div>
           )}
         </div>
         <div className="cart__finish">
