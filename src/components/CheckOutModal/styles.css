@@ -35,3 +35,15 @@
 .modal__thnx {
   color: #8c3c2a;
 }
+
+@media only screen and (max-width: 768px) {
+  .modal__orderID {
+    font-size: 1rem;
+  }
+  .modal__title {
+    font-size: 1.5rem;
+  }
+  .modal__instructions {
+    font-weight: 600;
+  }
+}
