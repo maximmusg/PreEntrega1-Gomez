@@ -38,6 +38,10 @@ Amplia gama de fragancias en diferentes formatos. En MMSG vas a encontrar aromat
 
 ![Desktop 2023 12 07 - 00 59 32 02](https://github.com/maximmusg/MmsgAromas/assets/55713740/f5e7b05f-2697-417d-8de2-b483023805e5)
 
+## Demo Firestore Database
+
+![demo2](https://github.com/maximmusg/ProyectoFinal-Gomez/assets/55713740/8110385e-2411-4c30-bfee-68f41ba16d14)
+
 ## Installation
 
 Install my-project with npm
@@ -127,6 +131,10 @@ Wide range of fragrances in different formats. In MMSG you will find fragrances 
 ## Demo
 
 ![Desktop 2023 12 07 - 00 59 32 02](https://github.com/maximmusg/MmsgAromas/assets/55713740/f5e7b05f-2697-417d-8de2-b483023805e5)
+
+## Demo Firestore Database
+
+![demo2](https://github.com/maximmusg/ProyectoFinal-Gomez/assets/55713740/8110385e-2411-4c30-bfee-68f41ba16d14)
 
 ## Installation
 
