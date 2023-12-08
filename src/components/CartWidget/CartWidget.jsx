@@ -5,7 +5,7 @@ import "./styles.css";
 
 const CartWidget = ({ productQuantity }) => {
   return (
-    <div>
+    <div className="icon__cart">
       <Icon.Cart4 size={40} />
       <div>
         <Badge bg="danger" className="icon_notify">

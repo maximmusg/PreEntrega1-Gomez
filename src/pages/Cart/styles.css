@@ -146,3 +146,34 @@
 .Cart__card__body {
   width: 20rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .Cart__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart__detail {
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  .card__cart {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .item__cart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cart__finish {
+    width: 100%;
+  }
+}

@@ -13,7 +13,7 @@ const Navbar = () => {
       {/* logo */}
       <div>
         <Link to={"/"} className="category__btn">
-          <h1>mmsg Aromas</h1>
+          <h1 className="nav__logo">mmsg Aromas</h1>
         </Link>
       </div>
       {/* navbar */}
@@ -29,7 +29,7 @@ const Navbar = () => {
               Aerosoles
             </NavLink>
           </li>
-          <li>
+          <li className="item__list">
             <NavLink
               activeclassname="active"
               to={"/category/difusores"}
@@ -38,7 +38,7 @@ const Navbar = () => {
               Difusores
             </NavLink>
           </li>
-          <li>
+          <li className="item__list">
             <NavLink
               activeclassname="active"
               to={"/category/textiles"}
@@ -47,7 +47,7 @@ const Navbar = () => {
               Textiles
             </NavLink>
           </li>
-          <li>
+          <li className="item__list">
             <NavLink
               activeclassname="active"
               to={"/category/sahumerios"}

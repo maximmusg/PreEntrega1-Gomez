@@ -88,3 +88,13 @@
   align-items: center;
   justify-content: space-around;
 }
+
+@media only screen and (max-width: 768px) {
+  .item__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 95vw;
+  }
+}
