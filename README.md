@@ -1,6 +1,6 @@
 # MMSG AROMAS.
 
-#### Bienvenido a tu Tienda de Aromatizantes!
+#### Bienvenido a tu Tienda de Aromatizantes!!
 
 #### Esta pagina ha sido creada con el objetivo de aprender y practicar todo lo visto en el curso de React, dictado por CoderHouse.
 
